@@ -12,6 +12,12 @@ A lockdown project.
  - [ ] Alexa Integration
 
 ---
+
+### Usage 
+
+Once installed on a Raspberry Pi, the control panel can be accessed at the IP of the Pi or, more conviniently, `http://nerves.local`
+
+---
 Uses the Elixir Nerves framework to create a firmware for the Raspberry Pi, and uses Pigpio to
 generate PWM signals to control the LED Lights.
 
