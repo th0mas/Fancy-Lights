@@ -7,7 +7,7 @@ defmodule FancyLightsFirmware.LightManager do
   end
 
   def init(_opts) do
-    case Phoenix.PubSub.subscribe(FancyLights.PubSub, "lights") do
+    case Phoenix.PubSub.subscribe(FancyLights.PubSub, "lights:dioder") do
       :ok ->
         {:ok, %{function: nil, timing: nil, last_cmd: :ok}}
       {:error, term} ->
@@ -15,8 +15,10 @@ defmodule FancyLightsFirmware.LightManager do
     end
   end
 
-  def handle_info(%{command: :change_colour, colour: colour}, state) do
-    FancyLightsFirmware.IkeaLights.change_colour(colour)
+  def handle_info(%{event: "light_colour", payload: %{colour: colour}}, state) do
+    colour
+    |> String.trim_leading("#")
+    |> FancyLightsFirmware.IkeaLights.change_colour()
     {:noreply, state}
   end
 

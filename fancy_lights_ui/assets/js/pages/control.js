@@ -14,9 +14,9 @@ const MainControl = () => {
     socket.connect()
     let chan = socket.channel("lights:dioder")
 
-    chan.on("light_state", (resp) => {
+    chan.on("light_colour", (resp) => {
   
-      setLightState(resp)
+      setLightState({...lightState, ...resp})
     })
     
     chan.join().receive("ok", (response) => {

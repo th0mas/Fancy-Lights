@@ -7,9 +7,13 @@ defmodule FancyLightsUiWeb.LightChannel do
   end
 
   def handle_in("light_colour", %{"colour" => colour}, socket) do
-    Phoenix.PubSub.broadcast(FancyLights.PubSub, "lights", %{
-      command: :change_colour,
-      colour: String.trim_leading(colour, "#")
+    # Phoenix.PubSub.broadcast(FancyLights.PubSub, "lights", %{
+    #   command: :change_colour,
+    #   colour: String.trim_leading(colour, "#")
+    # })
+
+    broadcast(socket, "light_colour", %{
+      colour: colour
     })
     {:noreply, socket}
   end
