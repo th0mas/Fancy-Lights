@@ -7,6 +7,6 @@ def delete(conn, _params) do
   Phoenix.PubSub.broadcast(FancyLights.PubSub, "lifecycle", {:reboot})
   conn
   |> put_flash(:info, "Rebooting soon")
-  |> redirect(to: Routes.page_path(conn, :index))
+  |> redirect(to: Routes.page_path(conn, :index, ""))
 end
 end

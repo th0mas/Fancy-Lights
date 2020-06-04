@@ -1,12 +1,1 @@
-<section class="phx-hero">
-  <h1>Lights are currently on.</h1>
-  <%= link "On", to: Routes.light_path(@conn, :new, "on"), method: :post %>
-  <p></p>
-  <%= link "Off", to: Routes.light_path(@conn, :new, "off"), method: :post%>
-</section>
-
-<%= form_for @conn, Routes.light_path(@conn, :update), [as: :lights], fn f -> %>
-  <%= label f, :colour, "Change Colour" %>
-  <%= color_input f, :colour %>
-  <%= submit "Change" %>
-<% end %>
+<div id="app-mount"></div>

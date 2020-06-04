@@ -13,7 +13,7 @@ defmodule FancyLightsUiWeb.LightController do
         Phoenix.PubSub.broadcast(FancyLights.PubSub, "lights", %{command: :light_off})
     end
 
-    redirect(conn, to: Routes.page_path(conn, :index))
+    redirect(conn, to: Routes.page_path(conn, :index, ""))
   end
 
   def update(conn, %{"lights" => %{"colour" => colour}}) do
@@ -24,6 +24,6 @@ defmodule FancyLightsUiWeb.LightController do
 
     conn
     |> put_flash(:info, "Colour changed")
-    |> redirect(to: Routes.page_path(conn, :index))
+    |> redirect(to: Routes.page_path(conn, :index, ""))
   end
 end

@@ -1,5 +1,4 @@
 const path = require('path');
-const glob = require('glob');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -16,11 +15,11 @@ module.exports = (env, options) => {
       ]
     },
     entry: {
-      'app': glob.sync('./vendor/**/*.js').concat(['./js/app.js'])
+      app: './assets/js/app.js'
     },
     output: {
       filename: '[name].js',
-      path: path.resolve(__dirname, '../priv/static/js'),
+      path: path.resolve(__dirname, 'priv/static/js'),
       publicPath: '/js/'
     },
     devtool: devMode ? 'source-map' : undefined,
@@ -45,7 +44,7 @@ module.exports = (env, options) => {
     },
     plugins: [
       new MiniCssExtractPlugin({ filename: '../css/app.css' }),
-      new CopyWebpackPlugin([{ from: 'static/', to: '../' }])
+      new CopyWebpackPlugin([{ from: 'assets/static/', to: '../' }])
     ]
   }
 };

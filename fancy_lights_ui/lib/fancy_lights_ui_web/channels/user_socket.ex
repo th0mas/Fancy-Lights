@@ -3,7 +3,7 @@ defmodule FancyLightsUiWeb.UserSocket do
 
   ## Channels
   # channel "room:*", FancyLightsUiWeb.RoomChannel
-
+  channel "lights:*", FancyLightsUiWeb.LightChannel
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
   # verification, you can put default assigns into
