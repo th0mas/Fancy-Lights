@@ -2,8 +2,11 @@ defmodule FancyLightsUiWeb.LightChannel do
   use FancyLightsUiWeb, :channel
   require Logger
 
+  @light_module FancyLightsFirmware.Lights.IkeaLights
+
   def join("lights:dioder", _params, socket) do
-    {:ok, %{on: :true, colour: "#FFFFFF"}, socket}
+    state = get_current_light_state()
+    {:ok, state, socket}
   end
 
   def handle_in("light_colour", %{"colour" => colour}, socket) do
@@ -16,5 +19,9 @@ defmodule FancyLightsUiWeb.LightChannel do
       colour: colour
     })
     {:noreply, socket}
+  end
+
+  def get_current_light_state() do
+    GenServer.call(@light_module, :get_state)
   end
 end

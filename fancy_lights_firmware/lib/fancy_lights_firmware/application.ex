@@ -33,8 +33,7 @@ defmodule FancyLightsFirmware.Application do
     [
       # Children for all targets except host
       {Phoenix.PubSub, name: FancyLights.PubSub},
-      FancyLightsFirmware.LightManager,
-      FancyLightsFirmware.IkeaLights,
+      FancyLightsFirmware.Lights.IkeaLights,
       # Starts a worker by calling: FancyLightsFirmware.Worker.start_link(arg)
       # {FancyLightsFirmware.Worker, arg},
     ]
