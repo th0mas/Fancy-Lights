@@ -27,12 +27,12 @@ defmodule FancyLightsFirmware.Lights.IkeaLights do
 
   def handle_info(%{event: "light_off"}, state) do
     change_colour("000000")
-    {:noreply, %{state | state: :off}}
+    {:noreply, %{state | on: false}}
   end
 
   def handle_info(%{event: "light_on"}, state) do
     change_colour("FFFFFF")
-    {:noreply, %{state | state: :on}}
+    {:noreply, %{state | on: true}}
   end
 
   def handle_info(cmd, state) do

@@ -21,6 +21,21 @@ defmodule FancyLightsUiWeb.LightChannel do
     {:noreply, socket}
   end
 
+  def handle_in("light_off", _params, socket) do
+    broadcast!(socket, "light_off", %{})
+
+    {:noreply, socket}
+  end
+
+  def handle_in("light_on", _params, socket) do
+    broadcast!(socket, "light_on", %{
+      on: true,
+      colour: "FFFFFF"
+    })
+
+    {:noreply, socket}
+  end
+
   def get_current_light_state() do
     GenServer.call(@light_module, :get_state)
   end

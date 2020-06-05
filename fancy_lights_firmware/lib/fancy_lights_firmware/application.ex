@@ -14,7 +14,6 @@ defmodule FancyLightsFirmware.Application do
         # Children for all targets
         # Starts a worker by calling: FancyLightsFirmware.Worker.start_link(arg)
         # {FancyLightsFirmware.Worker, arg},
-        # FancyLightsFirmware.Lifecycle,
       ]
 
     Supervisor.start_link(children, opts)

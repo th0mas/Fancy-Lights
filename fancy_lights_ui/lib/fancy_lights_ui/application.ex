@@ -24,7 +24,10 @@ defmodule FancyLightsUi.Application do
   end
 
   def children(:host) do
-    [{Phoenix.PubSub, name: FancyLights.PubSub}]
+    [
+      {Phoenix.PubSub, name: FancyLights.PubSub},
+      FancyLightsUi.Mock
+    ]
   end
 
   def children(_target) do
