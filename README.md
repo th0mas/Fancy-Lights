@@ -8,7 +8,7 @@ A lockdown project.
  - [x] Can control light colour
  - [x] Simple Web Interface
  - [ ] Light transitions / animations
- - [ ] Real time control
+ - [x] Real time control
  - [ ] Alexa Integration
 
 ---
