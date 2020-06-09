@@ -23,10 +23,7 @@ const MainControl = () => {
       setLightChan(chan)
     })
 
-    chan.on("light_colour", (resp) => {
-      updateLight(resp)
-    })
-
+    chan.on("light_colour", (resp) => updateLight(resp))
     chan.on("light_on", (resp) => updateLight(resp))
     chan.on("light_off", () => updateLight({ on: false }))
 

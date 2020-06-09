@@ -28,8 +28,6 @@ defmodule FancyLightsUiWeb.Router do
 
 
     delete "/lifecycle", LifecycleController, :delete
-    post "/lights/:status", LightController, :new
-    post "/lights", LightController, :update
     get "/*path", PageController, :index
   end
 

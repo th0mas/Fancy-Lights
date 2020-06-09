@@ -12,9 +12,10 @@ defmodule FancyLightsUi.Application do
       # Start the PubSub system - prehaps in firmware tree?
 
       # Start the Endpoint (http/https)
-      FancyLightsUiWeb.Endpoint
+      FancyLightsUiWeb.Endpoint,
       # Start a worker by calling: FancyLightsUi.Worker.start_link(arg)
       # {FancyLightsUi.Worker, arg}
+      {FancyLightsUiWeb.Upnp, [host: "192.168.0.105", endpoint: "/test.xml"]}
     ] ++ children(target())
 
     # See https://hexdocs.pm/elixir/Supervisor.html
