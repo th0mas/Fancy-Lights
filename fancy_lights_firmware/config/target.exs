@@ -113,6 +113,6 @@ config :fancy_lights_ui, FancyLightsUiWeb.Endpoint,
   # Use compile-time Mix config instead of runtime environment variables
   load_from_system_env: false,
   # Start the server since we're running in a release instead of through `mix`
-  url: [host: nil, port: 80],
+  url: [host: "nerves.local", port: 80],
   secret_key_base: "HEY05EB1dFVSu6KykKHuS4rQPQzSHv4F7mGVB/gnDLrIu75wE/ytBXy2TaL3A6RA",
   server: true

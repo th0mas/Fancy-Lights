@@ -23,9 +23,17 @@ defmodule FancyLightsUiWeb.Router do
     end
   end
 
+  # Alexa integration, pretend to be a Philips Hue Hub
+  # Similar to https://github.com/pborges/huejack/blob/4bd1e5447b881764bfb5ab11a5c3aa4805f00c21/handler.go
+  scope "/api", FancyLightsUiWeb do
+    pipe_through :api
+    get "/:userid", HueEmulatorController, :index
+    put "/:userid/lights/:lightid/state", HueEmulatorController, :edit
+    get "/:userid/lights/:lightid", HueEmulatorController, :show
+  end
+
   scope "/", FancyLightsUiWeb do
     pipe_through :browser
-
 
     delete "/lifecycle", LifecycleController, :delete
     get "/*path", PageController, :index

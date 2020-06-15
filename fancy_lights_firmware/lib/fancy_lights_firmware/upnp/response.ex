@@ -1,6 +1,7 @@
-defmodule FancyLightsUiWeb.Upnp.Response do
+defmodule FancyLightsFirmware.Upnp.Response do
   require EEx
 
+  # Apparently this is the response needed to imitate a Philips hub
   @template "HTTP/1.1 200 OK
 CACHE-CONTROL: max-age=86400
 EXT:

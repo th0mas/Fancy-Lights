@@ -9,7 +9,7 @@ import_config "../../fancy_lights_ui/config/config.exs"
 
 config :fancy_lights_ui, FancyLightsUiWeb.Endpoint,
   # Nerves root filesystem is read-only, so disable the code reloader
-  code_reloader: true,
+  code_reloader: false,
   http: [port: 4000],
   # Use compile-time Mix config instead of runtime environment variables
   # Start the server since we're running in a release instead of through `mix`
